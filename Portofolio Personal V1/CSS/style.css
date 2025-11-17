@@ -1,31 +1,88 @@
-/* Tes koneksi file */
-body {
-    background-color: #f4f4f4; /* Abu-abu muda */
-    font-family: Arial, Helvetica, sans-serif; /* Terapkan font ini ke semua */
-    line-height: 1.6; /* Beri jarak antar baris agar nyaman dibaca */
+/* --- MULAI LAYOUT NAVIGASI (FLEXBOX) --- */
+
+/* Kita target .container YANG ADA DI DALAM .navigasi-utama */
+.navigasi-utama .container {
+    /* 1. Aktifkan mode Flexbox pada "kotak sepatu" */
+    display: flex;
+    
+    /* 2. Atur barisan di sumbu UTAMA (horizontal) */
+    /* Kita ingin "brand" di kiri, "menu" di kanan */
+    justify-content: space-between;
+    
+    /* 3. Atur barisan di sumbu SILANG (vertikal) */
+    /* Kita ingin mereka rapi di tengah secara vertikal */
+    align-items: center;
 }
 
-.container {
-    width: 80%; /* Lebar kardus = 80% dari layar */
-    max-width: 900px; /* Tapi jangan lebih lebar dari 900px */
-
-    margin-top: 30px; /* Jarak dari atas */
-    margin-left: auto; /* Trik untuk membuat kardus ke tengah */
-    margin-right: auto; /* Trik untuk membuat kardus ke tengah */
-
-    padding: 20px; /* Jarak busa di dalam kardus */
-
-    background-color: #ffffff; /* Latar kardus putih */
-    border: 1px solid #ddd; /* Dinding kardus abu-abu tipis */
+/* * Sekarang kita perbaiki daftar <ul> nya.
+ * Defaultnya, <li> (list item) itu block (menumpuk ke bawah).
+ * Kita ingin "Home", "Proyek", "Kontak" berbaris ke samping juga!
+ */
+.navigasi-utama ul {
+    list-style-type: none; /* Hapus titik-titik (dari Modul 1) */
+    padding: 0;
+    
+    /* 1. Aktifkan Flexbox di <ul> (kotak sepatu baru) */
+    display: flex;
 }
 
-#judul-halaman {
-    background-color: #333;
-    text-align: center; /* BUAT JUDUL KE TENGAH */
-    font-size: 48px; /* BUAT JADI LEBIH BESAR */
+.navigasi-utama ul li {
+    /* Beri jarak antar menu */
+    margin-left: 20px;
 }
 
-.teks-bio {
-    background-color: #555;
-    font-size: 18px; /* Perbesar sedikit teks bio */
+.navigasi-utama ul li a {
+    text-decoration: none;
+    color: #555;
+    font-weight: bold;
+}
+
+/* --- MULAI LAYOUT GALERI (GRID) --- */
+
+/* 1. Aktifkan mode Grid pada "papan catur" */
+.galeri-grid {
+    display: grid;
+    
+    /* * 2. Tentukan "Template Kolom" (Grid Templates)
+     * Kita ingin 3 kolom.
+     * '1fr' adalah satuan "Fraction" (jatah).
+     * '1fr 1fr 1fr' artinya: "Bagi ruang jadi 3 jatah, masing-masing dapat 1."
+     */
+    grid-template-columns: 1fr 1fr 1fr;
+    
+    /* 3. Tentukan "Selokan" (Gap) antar kartu */
+    gap: 20px;
+}
+
+/* Beri gaya sedikit pada kartunya biar terlihat */
+.kartu-proyek {
+    border: 1px solid #ddd;
+    padding: 20px;
+    background-color: #fafafa;
+    border-radius: 5px;
+}
+
+/* --- MULAI MEDIA QUERIES (RESPONSIVE) --- */
+
+/* * Logika: "JIKA lebar layar MAKSIMAL 768px (ukuran tablet/HP)..."
+ */
+@media (max-width: 768px) {
+    
+    /* * "...MAKA timpa aturan .galeri-grid."
+     * Ubah dari 3 kolom (1fr 1fr 1fr) menjadi 1 KOLOM saja.
+     */
+    .galeri-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* * Navigasi kita juga akan berantakan di HP.
+     * Mari kita ubah Flex-nya jadi menumpuk ke bawah.
+     */
+    .navigasi-utama .container {
+        /* Ubah arah sumbu utama jadi vertikal */
+        flex-direction: column;
+        
+        /* Ratakan ke tengah */
+        align-items: center;
+    }
 }
