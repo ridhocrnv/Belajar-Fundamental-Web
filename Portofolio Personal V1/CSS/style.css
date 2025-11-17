@@ -1,0 +1,31 @@
+/* Tes koneksi file */
+body {
+    background-color: #f4f4f4; /* Abu-abu muda */
+    font-family: Arial, Helvetica, sans-serif; /* Terapkan font ini ke semua */
+    line-height: 1.6; /* Beri jarak antar baris agar nyaman dibaca */
+}
+
+.container {
+    width: 80%; /* Lebar kardus = 80% dari layar */
+    max-width: 900px; /* Tapi jangan lebih lebar dari 900px */
+
+    margin-top: 30px; /* Jarak dari atas */
+    margin-left: auto; /* Trik untuk membuat kardus ke tengah */
+    margin-right: auto; /* Trik untuk membuat kardus ke tengah */
+
+    padding: 20px; /* Jarak busa di dalam kardus */
+
+    background-color: #ffffff; /* Latar kardus putih */
+    border: 1px solid #ddd; /* Dinding kardus abu-abu tipis */
+}
+
+#judul-halaman {
+    background-color: #333;
+    text-align: center; /* BUAT JUDUL KE TENGAH */
+    font-size: 48px; /* BUAT JADI LEBIH BESAR */
+}
+
+.teks-bio {
+    background-color: #555;
+    font-size: 18px; /* Perbesar sedikit teks bio */
+}
